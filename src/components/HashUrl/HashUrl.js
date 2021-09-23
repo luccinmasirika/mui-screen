@@ -84,6 +84,9 @@ const HashUrl = () => {
                         onCopy={() => setData({ ...data, copied: true })}>
                         <ContentCopy style={{marginLeft: '5px'}}/>
                     </CopyToClipboard>
+                    <div>
+                        {data.copied ? <Typography>Coppied</Typography> : ''}
+                    </div>
                 </div>
             </Box>
         </div>
