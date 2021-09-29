@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './App';
-import { RegistrationMobile } from './components';
+import { RegistrationMobile } from './containers';
 
 const Routes = () => {
   return (

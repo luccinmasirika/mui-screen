@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Routes from './Routes';
 import reportWebVitals from './reportWebVitals';
+import { theme } from './utils';
+import { ThemeProvider } from '@mui/material';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routes />
+    <ThemeProvider theme={theme}>
+      <Routes />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
