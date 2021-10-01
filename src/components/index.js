@@ -1,2 +1,4 @@
 import HashUrl from './HashUrl';
-export { HashUrl };
+import UploadImage from './uploadImage';
+import CustomInput from './customInput';
+export { HashUrl, UploadImage, CustomInput };

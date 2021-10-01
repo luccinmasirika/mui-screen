@@ -7,12 +7,8 @@ const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={App} />
-        <Route
-          exact
-          path='/registration-mobile'
-          component={RegistrationMobile}
-        />
+        <Route exact path='/hash' component={App} />
+        <Route exact path='/' component={RegistrationMobile} />
       </Switch>
     </Router>
   );
