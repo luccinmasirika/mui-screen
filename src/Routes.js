@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import App from './App';
-import { RegistrationMobile } from './containers';
+import { Registration, HashUrl } from './containers';
+import { CssBaseline } from '@mui/material';
 
 const Routes = () => {
   return (
     <Router>
+      <CssBaseline />
       <Switch>
-        <Route exact path='/hash' component={App} />
-        <Route exact path='/' component={RegistrationMobile} />
+        <Route exact path='/registration' component={Registration} />
+        <Route exact path='/' component={HashUrl} />
       </Switch>
     </Router>
   );

@@ -4,19 +4,26 @@ import Placeholder from '../../assets/img/placeholder.png';
 import { Typography } from '@mui/material';
 
 const Root = styled('div')(({ theme }) => ({
-  padding: theme.spacing(2),
+  marginBottom: theme.spacing(2),
   display: 'flex',
+  justifyContent: 'center',
+  [theme.breakpoints.up('sm')]: {
+    justifyContent: 'space-between',
+  },
 }));
 
 const UploadButton = styled('label')(({ theme, preview }) => ({
   width: 65,
   height: 65,
   borderRadius: '50%',
-  margin: `auto ${theme.spacing(2)}`,
   background: `url(${preview ? preview : Placeholder})`,
   backgroundSize: 'cover',
   cursor: 'pointer',
   flex: 'none',
+  marginRight: theme.spacing(2),
+  [theme.breakpoints.up('sm')]: {
+    marginRight: theme.spacing(4),
+  },
 }));
 
 const Input = styled('input')({

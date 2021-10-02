@@ -1,7 +1,16 @@
 import { createTheme } from '@mui/material';
-import { blue, red } from '@mui/material/colors';
+import { blue, grey } from '@mui/material/colors';
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: blue[800],
+      200: blue[200],
+    },
+    grey: {
+      main: grey[200],
+    },
+  },
   typography: {
     h1: {
       fontSize: 28,
@@ -23,11 +32,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           padding: 8,
-          marginTop: 15,
+          background: grey[200],
         },
         input: {
           padding: 5,
-          height: '2rem',
+          height: '1.8rem',
         },
       },
     },
@@ -35,7 +44,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           margin: 0,
-          height: '2rem',
+          height: '1.8rem',
           padding: '10px 5px',
         },
       },
