@@ -8,10 +8,10 @@ import { BiAt } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { Button, Typography, Paper, InputAdornment } from '@mui/material';
 
-const Root = styled(Paper)(({ theme }) => ({
+const Root = styled(Paper)({
   maxWidth: '100%',
   margin: 'auto',
-}));
+});
 
 const LogoContainer = styled('div')(({ theme }) => ({
   width: '40%',
