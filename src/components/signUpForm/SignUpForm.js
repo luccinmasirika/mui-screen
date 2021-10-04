@@ -52,7 +52,9 @@ const SignUpForm = () => {
     if (props === 'profile') {
       setPreview(URL.createObjectURL(event.target.files[0]));
     }
+    console.log({ [props]: event.target.value });
   };
+
   return (
     <Root elevation={0}>
       <CssBaseline />
@@ -71,11 +73,17 @@ const SignUpForm = () => {
         Let's get you all set up so you can start managing your content
       </TextDescription>
       <UploadImage handelChange={handelChange('profile')} preview={preview} />
-      <CustomInput placeholder='First Name' handelChange={''} />
-      <CustomInput placeholder='Last Name' handelChange={''} />
+      <CustomInput
+        placeholder='First Name'
+        handelChange={handelChange('firstName')}
+      />
+      <CustomInput
+        placeholder='Last Name'
+        handelChange={handelChange('lastName')}
+      />
       <CustomInput
         placeholder='Phone'
-        handelChange={''}
+        handelChange={handelChange('phone')}
         startAdornment={
           <InputAdornment position='end'>
             <FaPhoneAlt />
@@ -84,15 +92,21 @@ const SignUpForm = () => {
       />
       <CustomInput
         placeholder='Email'
-        handelChange={''}
+        handelChange={handelChange('email')}
         startAdornment={
           <InputAdornment position='end'>
             <BiAt />
           </InputAdornment>
         }
       />
-      <CustomInput placeholder='Password' handelChange={''} />
-      <CustomInput placeholder='Confirme Password' handelChange={''} />
+      <CustomInput
+        placeholder='Password'
+        handelChange={handelChange('password')}
+      />
+      <CustomInput
+        placeholder='Confirm Password'
+        handelChange={handelChange('confirmPassword')}
+      />
       <SubmitButton>
         <Button variant='contained'>Register</Button>
       </SubmitButton>
