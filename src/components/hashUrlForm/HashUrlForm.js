@@ -6,7 +6,6 @@ import { Autorenew, ContentCopy } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
 import Logo from '../logo/Logo';
 import { Button, Typography } from '@mui/material';
-import { grey } from '@mui/material/colors';
 import { FiLink } from 'react-icons/fi';
 
 const url = window.location.protocol + '//' + window.location.host + '/';
@@ -17,7 +16,7 @@ const Root = styled('div')(({ theme }) => ({
   margin: 'auto',
 }));
 
-const HeaderContent = styled('div')(({ theme }) => ({
+const MainContent = styled('div')(({ theme }) => ({
   padding: theme.spacing(1),
   [theme.breakpoints.up('sm')]: {
     padding: theme.spacing(4),
@@ -41,34 +40,35 @@ const TextDescription = styled(Typography)(({ theme }) => ({
 
 const TextCaption = styled(Typography)(({ theme }) => ({
   padding: `${theme.spacing(1)} 0`,
+  color: theme.palette.grey[500],
 }));
 
 const GetName = styled('div')({
   display: 'flex',
 });
 
-const HashedLink = styled('div')(({ theme }) => ({
+const HashedUrlContainer = styled('div')(({ theme }) => ({
   display: 'flex',
   width: '100%',
   height: 50,
-  background: grey[200],
+  background: theme.palette.grey[200],
   alignItems: 'center',
   justifyContent: 'space-between',
 }));
 
-const FlexContent = styled('div')({
+const CustomFlexBox = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 });
 
-const LinkIcon = styled(FlexContent)(({ theme }) => ({
+const LinkIconContainer = styled(CustomFlexBox)(({ theme }) => ({
   width: 50,
   height: 50,
   color: theme.palette.grey[500],
 }));
 
-const LinkText = styled(FlexContent)(({ theme }) => ({
+const LinkTextContainer = styled(CustomFlexBox)(({ theme }) => ({
   color: theme.palette.primary.main,
   textDecoration: 'underline',
   justifyContent: 'flex-start',
@@ -90,11 +90,11 @@ const LinkText = styled(FlexContent)(({ theme }) => ({
   },
 }));
 
-const RefreshIcon = styled(LinkIcon)({
+const RefreshIconContainer = styled(LinkIconContainer)({
   cursor: 'pointer',
 });
 
-const CopyIcon = styled(RefreshIcon)(({ theme, copied }) => ({
+const CopyIconContainer = styled(RefreshIconContainer)(({ theme, copied }) => ({
   border: `1px solid ${theme.palette.grey[600]}`,
   borderRadius: 2,
   color: copied ? theme.palette.grey[100] : theme.palette.grey[500],
@@ -129,12 +129,12 @@ const HashUrlForm = () => {
 
   useEffect(() => {
     _hashUrl();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Root>
-      <HeaderContent>
+      <MainContent>
         <LogoContainer>
           <Logo />
         </LogoContainer>
@@ -147,7 +147,7 @@ const HashUrlForm = () => {
           align='center'
           gutterBottom
         >
-          Let's get you all set up so you can start managing the acount
+          Let's get you all set up so you can start managing the content
         </TextDescription>
         <GetName>
           <FormControl fullWidth variant='filled'>
@@ -164,30 +164,30 @@ const HashUrlForm = () => {
         <TextCaption variant='body2' component='p'>
           This name will help us with analytics
         </TextCaption>
-      </HeaderContent>
-      <HashedLink>
-        <FlexContent>
-          <LinkIcon>
+      </MainContent>
+      <HashedUrlContainer>
+        <CustomFlexBox>
+          <LinkIconContainer>
             <FiLink />
-          </LinkIcon>
-          <LinkText>
+          </LinkIconContainer>
+          <LinkTextContainer>
             <Typography>{`${url}${data.hashUrl}`}</Typography>
-          </LinkText>
-        </FlexContent>
-        <FlexContent>
-          <RefreshIcon onClick={_hashUrl}>
+          </LinkTextContainer>
+        </CustomFlexBox>
+        <CustomFlexBox>
+          <RefreshIconContainer onClick={_hashUrl}>
             <Autorenew />
-          </RefreshIcon>
-          <CopyIcon copied={data.copied}>
+          </RefreshIconContainer>
+          <CopyIconContainer copied={data.copied}>
             <CopyToClipboard
               text={`${url}${data.hashUrl}`}
               onCopy={() => setData({ ...data, copied: true })}
             >
               <ContentCopy />
             </CopyToClipboard>
-          </CopyIcon>
-        </FlexContent>
-      </HashedLink>
+          </CopyIconContainer>
+        </CustomFlexBox>
+      </HashedUrlContainer>
     </Root>
   );
 };
