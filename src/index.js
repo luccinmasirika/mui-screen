@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routes from './Routes';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { theme } from './utils';
 import { ThemeProvider } from '@mui/material';
@@ -9,7 +9,7 @@ import { ThemeProvider } from '@mui/material';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <Routes />
+      <App />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

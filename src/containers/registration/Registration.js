@@ -1,4 +1,3 @@
-import CssBaseline from '@mui/material/CssBaseline';
 import { SignUpForm } from '../../components';
 import { Paper } from '@mui/material';
 import { styled } from '@mui/system';
