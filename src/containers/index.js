@@ -1,3 +1,4 @@
 import Registration from './registration';
 import HashUrl from './hashUrl';
-export { Registration, HashUrl };
+import Login from './login';
+export { Registration, HashUrl, Login };

@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { styled } from '@mui/material/styles';
 import Logo from './../../components/logo/Logo';
-import { UploadImage, CustomInput } from '../../components';
-import { FaPhoneAlt } from 'react-icons/fa';
-import { BiAt } from 'react-icons/bi';
+import { CustomInput } from '../../components';
+import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import { Button, Typography, Paper, InputAdornment } from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const Root = styled(Paper)(({ theme }) => ({
   maxWidth: '100%',
@@ -45,13 +46,14 @@ const CustonLink = styled(Link)(({ theme }) => ({
   color: theme.palette.primary.main,
 }));
 
-const SignUpForm = () => {
-  const [preview, setPreview] = useState(null);
-  const handelChange = (props) => (event) => {
+const SignInForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
     event.preventDefault();
-    if (props === 'profile') {
-      setPreview(URL.createObjectURL(event.target.files[0]));
-    }
   };
   return (
     <Root elevation={0}>
@@ -60,7 +62,7 @@ const SignUpForm = () => {
         <Logo />
       </LogoContainer>
       <Typography variant='h1' component='h1' align='center'>
-        Create an Account
+        Login
       </Typography>
       <TextDescription
         variant='body1'
@@ -68,42 +70,38 @@ const SignUpForm = () => {
         align='center'
         gutterBottom
       >
-        Let's get you all set up so you can start managing your content
+        Welcome back, To login please enter your email and password
       </TextDescription>
-      <UploadImage handelChange={handelChange('profile')} preview={preview} />
-      <CustomInput placeholder='First Name' handelChange={''} />
-      <CustomInput placeholder='Last Name' handelChange={''} />
+      <CustomInput placeholder='Email' handelChange={''} />
       <CustomInput
-        placeholder='Phone'
+        placeholder='Password'
         handelChange={''}
-        startAdornment={
+        type={showPassword ? 'text' : 'password'}
+        endAdornment={
           <InputAdornment position='end'>
-            <FaPhoneAlt />
+            <IconButton
+              aria-label='toggle password visibility'
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {showPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
           </InputAdornment>
         }
       />
-      <CustomInput
-        placeholder='Email'
-        handelChange={''}
-        startAdornment={
-          <InputAdornment position='end'>
-            <BiAt />
-          </InputAdornment>
-        }
-      />
-      <CustomInput placeholder='Password' handelChange={''} />
-      <CustomInput placeholder='Confirme Password' handelChange={''} />
       <SubmitButton>
-        <Button variant='contained'>Register</Button>
+        <Button variant='contained'>Login</Button>
       </SubmitButton>
       <Footer>
         <Typography variant='body1' component='p'>
-          Already have an account ?
+          Don't have an account ?
         </Typography>
-        <CustonLink to='/login'>Sign In</CustonLink>
+        <CustonLink underline='none' to='/registration'>
+          Sign Up
+        </CustonLink>
       </Footer>
     </Root>
   );
 };
 
-export default SignUpForm;
+export default SignInForm;
