@@ -9,10 +9,10 @@ import { Button, Typography, Paper, InputAdornment } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const Root = styled(Paper)(({ theme }) => ({
+const Root = styled(Paper)({
   maxWidth: '100%',
   margin: 'auto',
-}));
+});
 
 const LogoContainer = styled('div')(({ theme }) => ({
   width: '40%',
@@ -55,6 +55,11 @@ const SignInForm = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const handelChange = (props) => (event) => {
+    event.preventDefault();
+    console.log({ [props]: event.target.value });
+  };
   return (
     <Root elevation={0}>
       <CssBaseline />
@@ -72,10 +77,10 @@ const SignInForm = () => {
       >
         Welcome back, To login please enter your email and password
       </TextDescription>
-      <CustomInput placeholder='Email' handelChange={''} />
+      <CustomInput placeholder='Email' handelChange={handelChange('email')} />
       <CustomInput
         placeholder='Password'
-        handelChange={''}
+        handelChange={handelChange('password')}
         type={showPassword ? 'text' : 'password'}
         endAdornment={
           <InputAdornment position='end'>
