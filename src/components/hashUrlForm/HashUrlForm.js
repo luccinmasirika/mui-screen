@@ -72,6 +72,7 @@ const LinkTextContainer = styled(CustomFlexBox)(({ theme }) => ({
   color: theme.palette.primary.main,
   textDecoration: 'underline',
   justifyContent: 'flex-start',
+  whiteSpace: 'nowrap',
   [theme.breakpoints.down('sm')]: {
     maxWidth: 160,
     overflow: 'auto',
