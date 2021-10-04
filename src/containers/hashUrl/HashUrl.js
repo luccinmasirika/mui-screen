@@ -5,11 +5,13 @@ import { Paper } from '@mui/material';
 
 const HashUrlFormContainer = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
+  width: '100%',
+  overflow: 'hidden',
   [theme.breakpoints.up('sm')]: {
     maxWidth: '70%',
     padding: theme.spacing(2),
   },
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     maxWidth: '40%',
     flex: 'none',
   },

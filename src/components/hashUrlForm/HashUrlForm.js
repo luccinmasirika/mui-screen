@@ -1,37 +1,42 @@
 import { useState, useEffect } from 'react';
-import { TextField, Box, FilledInput, FormControl } from '@mui/material';
+import { FilledInput, FormControl } from '@mui/material';
 import randomstring from 'randomstring';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Autorenew, ContentCopy } from '@mui/icons-material';
-import CssBaseline from '@mui/material/CssBaseline';
 import { styled } from '@mui/material/styles';
 import Logo from '../logo/Logo';
-import { UploadImage, CustomInput } from '..';
-import { FaPhoneAlt } from 'react-icons/fa';
-import { BiAt } from 'react-icons/bi';
-import { Button, Link, Typography, Paper } from '@mui/material';
-import { grey, blue } from '@mui/material/colors';
+import { Button, Typography } from '@mui/material';
+import { grey } from '@mui/material/colors';
 import { FiLink } from 'react-icons/fi';
 
 const url = window.location.protocol + '//' + window.location.host + '/';
 
 const Root = styled('div')(({ theme }) => ({
   maxWidth: '100%',
-  padding: theme.spacing(2),
+  padding: theme.spacing(1),
   margin: 'auto',
 }));
 
 const HeaderContent = styled('div')(({ theme }) => ({
-  padding: theme.spacing(4),
+  padding: theme.spacing(1),
+  [theme.breakpoints.up('sm')]: {
+    padding: theme.spacing(4),
+  },
 }));
 
 const LogoContainer = styled('div')(({ theme }) => ({
   width: '35%',
   margin: `0 auto ${theme.spacing(4)}`,
+  [theme.breakpoints.up('sm')]: {
+    padding: `0 auto ${theme.spacing(2)}`,
+  },
 }));
 
 const TextDescription = styled(Typography)(({ theme }) => ({
   padding: `${theme.spacing(2)} ${theme.spacing(4)}`,
+  [theme.breakpoints.up('sm')]: {
+    padding: theme.spacing(2),
+  },
 }));
 
 const TextCaption = styled(Typography)(({ theme }) => ({
@@ -66,30 +71,34 @@ const LinkIcon = styled(FlexContent)(({ theme }) => ({
 const LinkText = styled(FlexContent)(({ theme }) => ({
   color: theme.palette.primary.main,
   textDecoration: 'underline',
+  justifyContent: 'flex-start',
+  [theme.breakpoints.down('sm')]: {
+    maxWidth: 160,
+    overflow: 'auto',
+    height: 50,
+    paddingRight: 25,
+    position: 'relative',
+    '&:after': {
+      width: 50,
+      height: 50,
+      background: `linear-gradient(
+90deg, transparent, 40%, ${theme.palette.grey[200]})`,
+      content: '""',
+      position: 'fixed',
+      right: 130,
+    },
+  },
 }));
 
 const RefreshIcon = styled(LinkIcon)({
   cursor: 'pointer',
 });
 
-const CopyIcon = styled(RefreshIcon)(({ theme }) => ({
+const CopyIcon = styled(RefreshIcon)(({ theme, copied }) => ({
   border: `1px solid ${theme.palette.grey[600]}`,
   borderRadius: 2,
-  color: theme.palette.grey[700],
-  '&:hover': {
-    color: theme.palette.primary.main,
-    border: `1px solid ${theme.palette.primary.main}`,
-  },
-  '&:active': {
-    color: theme.palette.primary.main,
-    border: `1px solid ${theme.palette.primary.main}`,
-    background: theme.palette.primary[200],
-  },
-  '&:focus': {
-    color: theme.palette.primary.main,
-    border: `1px solid ${theme.palette.primary.main}`,
-    background: theme.palette.primary[200],
-  },
+  color: copied ? theme.palette.grey[100] : theme.palette.grey[500],
+  background: copied ? theme.palette.primary.main : theme.palette.grey[200],
 }));
 
 const HashUrlForm = () => {
@@ -165,25 +174,21 @@ const HashUrlForm = () => {
           </LinkText>
         </FlexContent>
         <FlexContent>
-          <RefreshIcon>
+          <RefreshIcon onClick={_hashUrl}>
             <Autorenew />
           </RefreshIcon>
-          <CopyIcon>
-            <ContentCopy />
+          <CopyIcon copied={data.copied}>
+            <CopyToClipboard
+              text={`${url}${data.hashUrl}`}
+              onCopy={() => setData({ ...data, copied: true })}
+            >
+              <ContentCopy />
+            </CopyToClipboard>
           </CopyIcon>
         </FlexContent>
       </HashedLink>
     </Root>
   );
 };
-
-// <Typography>Uniq Url - {`${url}${data.hashUrl}`}</Typography>
-// <Autorenew onClick={_hashUrl} style={{ marginLeft: '5px' }} />
-// <CopyToClipboard
-// text={`${url}${data.hashUrl}`}
-// onCopy={() => setData({ ...data, copied: true })}
-// >
-// <ContentCopy style={{ marginLeft: '5px' }} />
-// </CopyToClipboard>
 
 export default HashUrlForm;

@@ -10,7 +10,7 @@ const SignUpFormContainer = styled(Paper)(({ theme }) => ({
     maxWidth: '70%',
     padding: `${theme.spacing(2)} 8%`,
   },
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     maxWidth: '40%',
     flex: 'none',
   },
