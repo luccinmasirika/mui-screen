@@ -51,7 +51,7 @@ const HashedUrlContainer = styled('div')(({ theme }) => ({
   display: 'flex',
   width: '100%',
   height: 50,
-  background: theme.palette.grey[200],
+  background: theme.palette.grey.main,
   alignItems: 'center',
   justifyContent: 'space-between',
 }));
@@ -82,7 +82,7 @@ const LinkTextContainer = styled(CustomFlexBox)(({ theme }) => ({
       width: 50,
       height: 50,
       background: `linear-gradient(
-90deg, transparent, 40%, ${theme.palette.grey[200]})`,
+90deg, transparent, 40%, ${theme.palette.grey.main})`,
       content: '""',
       position: 'fixed',
       right: 130,
@@ -98,7 +98,7 @@ const CopyIconContainer = styled(RefreshIconContainer)(({ theme, copied }) => ({
   border: `1px solid ${theme.palette.grey[600]}`,
   borderRadius: 2,
   color: copied ? theme.palette.grey[100] : theme.palette.grey[500],
-  background: copied ? theme.palette.primary.main : theme.palette.grey[200],
+  background: copied ? theme.palette.primary.main : theme.palette.grey.main,
 }));
 
 const HashUrlForm = () => {
