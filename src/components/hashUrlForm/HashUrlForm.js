@@ -98,7 +98,8 @@ const RefreshIconContainer = styled(LinkIconContainer)({
 const CopyIconContainer = styled(RefreshIconContainer)(({ theme, copied }) => ({
   border: `1px solid ${theme.palette.grey[600]}`,
   borderRadius: 2,
-  color: copied ? theme.palette.grey[100] : theme.palette.grey[500],
+  width: copied ? 'auto' : 50,
+  padding: copied ? `0 ${theme.spacing(1)}` : 0,
   background: copied ? theme.palette.primary.main : theme.palette.grey.main,
 }));
 
@@ -180,12 +181,18 @@ const HashUrlForm = () => {
             <Autorenew />
           </RefreshIconContainer>
           <CopyIconContainer copied={data.copied}>
-            <CopyToClipboard
-              text={`${url}${data.hashUrl}`}
-              onCopy={() => setData({ ...data, copied: true })}
-            >
-              <ContentCopy />
-            </CopyToClipboard>
+            {!data.copied ? (
+              <CopyToClipboard
+                text={`${url}${data.hashUrl}`}
+                onCopy={() => setData({ ...data, copied: true })}
+              >
+                <ContentCopy />
+              </CopyToClipboard>
+            ) : (
+              <Typography variant='body2' color='white' component='span'>
+                Copied
+              </Typography>
+            )}
           </CopyIconContainer>
         </CustomFlexBox>
       </HashedUrlContainer>
