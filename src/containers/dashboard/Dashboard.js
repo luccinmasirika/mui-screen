@@ -16,7 +16,7 @@ const Header = styled('div')(({ theme }) => ({
 const ShowMenu = styled('div')(({ theme }) => ({
   margin: theme.spacing(2),
   position: 'fixed',
-  botton: 40,
+  bottom: 40,
   left: 20,
 }));
 
