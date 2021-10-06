@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { AppBar } from '../../components';
+import Box from '@mui/material/Box';
 
 const Dashboard = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar />
+    </Box>
+  );
+};
 
-export default Dashboard
-
+export default Dashboard;
