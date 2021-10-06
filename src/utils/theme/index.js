@@ -5,6 +5,8 @@ const theme = createTheme({
   palette: {
     primary: {
       main: blue[700],
+      50: blue[50],
+      100: blue[100],
       200: blue[200],
     },
     grey: {
@@ -12,6 +14,7 @@ const theme = createTheme({
     },
   },
   typography: {
+    typography: 'Raleway',
     h1: {
       fontSize: 28,
       fontWeight: 600,
