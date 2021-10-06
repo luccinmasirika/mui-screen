@@ -4,6 +4,7 @@ import CustomInput from './customInput';
 import SignUpForm from './signUpForm';
 import Layout from './layout';
 import SignInForm from './signInForm';
+import AppBar from './appBar';
 
 export {
   HashUrlForm,
@@ -12,4 +13,5 @@ export {
   SignUpForm,
   Layout,
   SignInForm,
+  AppBar,
 };
