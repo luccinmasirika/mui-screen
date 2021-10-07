@@ -15,7 +15,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    typography: 'Raleway',
+    fontFamily: 'Raleway',
     h1: {
       fontSize: 28,
       fontWeight: 600,
