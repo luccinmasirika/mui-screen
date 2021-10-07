@@ -10,6 +10,7 @@ import { styled } from '@mui/system';
 import IconButton from '@mui/material/IconButton';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 const CustomTable = styled(Paper)(({ theme }) => ({
   background: theme.palette.primary[50],
@@ -54,6 +55,7 @@ const CustomersList = () => {
       <Table sx={{ minWidth: 650 }} aria-label='Customers'>
         <CustomTableHead>
           <TableRow>
+            <TableCell></TableCell>
             <TableCell>Customer Name</TableCell>
             <TableCell>URL</TableCell>
             <TableCell align='center'>Actions</TableCell>
@@ -62,6 +64,9 @@ const CustomersList = () => {
         <CustomTableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
+              <TableCell align='center'>
+                <FiberManualRecordIcon />
+              </TableCell>
               <TableCell component='th' scope='row'>
                 {row.name}
               </TableCell>

@@ -11,6 +11,7 @@ const theme = createTheme({
     },
     grey: {
       main: grey[200],
+      secondary: grey[400],
     },
   },
   typography: {
