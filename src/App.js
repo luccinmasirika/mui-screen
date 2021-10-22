@@ -7,10 +7,10 @@ function App() {
     <Router>
       <CssBaseline />
       <Switch>
-        <Route exact path='/' component={HashUrl} />
+        <Route exact path='/hash' component={HashUrl} />
         <Route exact path='/registration' component={Registration} />
         <Route exact path='/login' component={Login} />
-        <Route exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/' component={Dashboard} />
       </Switch>
     </Router>
   );
