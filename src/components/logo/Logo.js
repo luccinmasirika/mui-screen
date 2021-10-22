@@ -1,8 +1,8 @@
 import React from 'react';
-import Amdocs from '../../assets/img/Amdocs_Logo.png';
+import { AdmocsLogo } from '../../assets';
 
 const Logo = () => {
-  return <img src={Amdocs} width='100%' alt='Amdocs Logo' />;
+  return <img src={AdmocsLogo} width='100%' alt='Amdocs Logo' />;
 };
 
 export default Logo;

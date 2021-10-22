@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { blue, grey } from '@mui/material/colors';
+import { blue, grey, red, lightGreen } from '@mui/material/colors';
 
 const theme = createTheme({
   palette: {
@@ -12,10 +12,18 @@ const theme = createTheme({
     grey: {
       main: grey[200],
       secondary: grey[400],
+      darkLight: grey[800],
+      dark: grey[900],
+    },
+    red: {
+      main: red[600],
+    },
+    lightGreen: {
+      main: lightGreen['A400'],
     },
   },
   typography: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Roboto',
     h1: {
       fontSize: 28,
       fontWeight: 600,

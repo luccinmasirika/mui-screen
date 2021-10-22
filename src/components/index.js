@@ -6,6 +6,8 @@ import Layout from './layout';
 import SignInForm from './signInForm';
 import AppBar from './appBar';
 import CustomersList from './customersList';
+import Logo from './logo';
+import LogoIcon from './logoIcon';
 
 export {
   HashUrlForm,
@@ -16,4 +18,6 @@ export {
   SignInForm,
   AppBar,
   CustomersList,
+  Logo,
+  LogoIcon,
 };
